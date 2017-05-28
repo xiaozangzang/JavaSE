@@ -1,0 +1,341 @@
+Javascript
+引入javascript文件
+        <script type="text/javascript" src="js.js"></script>
+直接在页面中嵌入Javascript：
+        <script type="text/javascript">
+
+        </script>
+Javascript：一种基于对象和事件驱动的客户端技术，常用于实现网页的动态效果
+		---脚本语言--简易的编程语言
+		<head>
+			<script>
+			</script>
+		</head>
+其作用主要包括：
+数据验证(指的是，对表单中的数据进行合法性验证，只有验证通过才能提交)
+操作网页，实现一些动态效果
+访问浏览器，获得浏览器的一些信息。(比如获得浏览器的类型、版本等)
+ajax 核心技术之一
+
+ 标识符:由字母、$、下划线开头，后面可以是字母、$、下划线和数字。比如"A$_"
+    不能把保留字、关键字、true、false、null作为标识符
+ 语句 :语句以" ;"结尾。
+ 变量是松散类型的，可以用来保存任何类型的数据类型。
+数据类型
+1)	基本类型
+a.number（数字类型）
+    number 类型代表数字，不管是整数、小数都是 number
+    number 类型有一个对应的包装类 Number
+    number -- > string : toString()方法
+    最大值 :Number.MAX_VALUE
+    最小值 :Number.MIN_VALUE
+    如果超过这个范围，会返回 Infinity,或者-Infinity
+    NaN，即非数值是一个特殊的数值。NaN不与任何值相等，包括本身。
+        isNaN()函数，判断是不是数值。不能转换为数字，即返回true。
+    Number()  parseInt()  parseFloat()
+b.string（字符串）
+    string 属于基本类型，没有 char 类型。
+    string 有一个对应的包装类 String。
+    length 属性	返回字符串的长度
+    charAt(index)	返回指定位置的字符
+    substring(from, to)	返回子字符串
+    indexOf(str)	指定字符串在原字符串中第一次出现的位置。
+    lastIndexOf(str)	指定字符串在原字符串中最后一次出现的的位置。
+    spilt("");   从特定的字符处将字符串切割
+    match(regexp)	返回匹配指定正则表达式的字符串，返回的结果是一个
+    数组。
+    search(regexp)	返回按照正则表达式检索到的字符串位置。
+    toLowerCase/toUpperCase	返回小写/大写形式
+    replace(regexp,newStr) ;	替换符合正则表达式规定的字符串
+
+c.boolean（布尔类型 true/false）
+	boolean 类型使用时，要注意的问题不为空的字符串，转换成 true。
+	非零的数字，转换成 true。null、undefined 转换成 false。
+	Boolean()转型函数
+    boolean 类型也有包装类 Boolean。
+d.null（空类型 只有一个值 null）
+    在使用 typeof 测试类型时，返回 object。
+e.undefine（未定义类型）
+	未定义类型只有一个值 underfine。
+typeof 是一个操作符；
+f.object 类型的实例并为其添加属性和方法，就可以创建自定义对象
+    var s = new Object();
+2)	引用类型
+a.Array
+	数组的大小可以改变，并且数组元素的类型可以混合存放。
+	创建数组的第一种方式使用 Array
+	创建数组的第二种方式使用[]
+	数组的常用属性和方法
+	length 属性 :	返回数组的长度
+	toString()方法 :	返回数组的字符串表示
+	concat()方法,	用于连接两个数组,生成一个新数组
+	join()方法，	用于将数组中的各个元素连接成字符串
+	reverse()方法，	将数组反转。不会生成新数组
+	slice()	用于截取数组的一部分并以数组的形式返回。原数组不
+会有任何变化。
+	sort()排序，默认排序从小到大	可通过如下形式来重新定义排序方式：
+var arr4 = arr3.sort( function(a1,a2){
+return -a1.length + a2.length ;}) ;
+b.Function
+	使用 function 关键字定义函数。
+	函数不能有返回类型，但是可以有返回值。
+	函数内部，可以使用 arguments 对象来获得参数值。
+	函数没有重载。
+c.	变量的作用域
+	js 引擎(浏览器内部负责解释执行 javascript 脚本的模块)在执行 js 脚本时
+	执行过程分为两个阶段：
+	第一阶段：
+将所有的变量声明以及函数的定义存放到一个特殊的对象(活动对象)里。 具体过程：
+
+在解析<script>的代码时，会将变量的声明以及函数的定义存放到全局的活动 对象里面。
+在遇到某个函数时，会将该函数内部声明的变量及函数的定义存放到局部活动 对象里面。
+	第二阶段：
+执行 js 代码，在碰到变量时，会先从该代码所对应的活动对象里查找 该变量的定义，如果没有找到，则向上查找对应的活动对象。
+d.	Math
+	random() :	随机生成一个 0 到 1 之间的数字。
+	ceil() :	对一个数上舍入。
+	floor() :	对一个数下舍入
+
+弱类型的语言：声明的时候不需要指定类型，实际类型以赋值为准。
+语句：
+for-in语句,迭代语句，可以用来枚举对象的属性。
+    for(var propName in window){
+    document.write(propName);
+    }
+label语句：
+    使用label语句可以在代码中添加标签，以便将来使用。加标签的语句一般都要与for语句等循环语句配合使用。
+start:for(var i=0;i < count;i++){
+    alert(i);
+}
+
+DOM--document object model  文档对象模型
+    Document Object Model(文档对象模型),定义了如何将一个结构化的文档(比如 xml, html)转换成一棵树，并且也定义了如何操作这棵树
+的方法或者属性。这样做的目的，是为了方便对结构化文档的操作。
+dom操作：
+1.	dom 操作
+	演示
+Dom 查找的第二种方式（根1)	查找
+a.	方式一（常用方式）
+//document 是 HTMLDocume nt 的实例。
+var obj = document.getElementById(id);
+b.	方式二
+根据标记的名字返回相应节点
+var arr = node.getElementsByTagName(tagName);
+c.	方式三（使用遍历的方式）
+    parentNode
+    previousSibling
+    nextSibling
+    childNodes
+    firstChild
+    lastChild
+因为遍历的方式浏览器兼容性差，不建议使用 可以使用别人写好的框架的方式进行遍历
+2)	创建节点
+    var obj = document.createElement(tagName);
+3)	添加节点
+    a.将 obj 作为 node 的最后一个孩子添加进来。 node.appendChild(obj);
+    b.将 obj 插入到 refNode 前面 node.insertBefore(obj,refNode);
+    c.替换 refNode node.replaceChild(obj,refNode);
+4)	删除节点
+    node.removeChild(obj);
+5)	样式操作
+	方式一
+    修改节点的 style 属性。
+    注意：
+    a.	要修改的样式必须是内联样式
+    b.	如果样式的属性名称包括"-"，要将"-"号除掉， 然后将"-"号后面的第一个字母大 写。
+	方式二（常用）
+    修改节点的 class 属性。
+    className = class 选择器名称。 比如: obj.className = 's2';
+6)	如何禁止浏览器的默认行为?
+    在默认情况下，点击链接，浏览器会向 href 所指向的地址发请求。点击表单提交，浏览器会将表单中的数据进行发送。
+    如果要禁止，可以使用如下语句:
+    <a href="" onclick="return false;"></a>
+    <form onsubmit="return false;">
+7)	如何使用正则表达式进行字符串的验证?
+    var reg = /正则表达式/;
+    boolean reg.test(要验证的字符串);
+    js 引擎会将"/正则表达式/"转换成一个 RegExp 对象，当字符串满足正则表达式的要求时，返 回 true。
+8)prototype 框架的使用
+    $(id):	相当于 document.getElementById(id);
+    $F(id):	相当于 document.getElementById(id).value;
+    $(id1,id2...):	依次查找 id 为 id1,id2...的节点，返回一个数组。
+    strip():	除掉字符串两端的空格。
+2.1. Select，option 的使用
+1.html dom
+Html dom 指的是在 w3c 的 dom 规范出现之前，各个浏览器支持的一些 dom 操作。
+1)Select 对象 属性
+a.	selectedIndex:	用户选择的选项的下标,下标从 0 开始。
+b.
+c.	length:
+options:	获取戒者设置选项的个数。
+返回一个数组，数组元素是 Option 对象。
+2)Option 对象
+属性
+a.	text:	选项的文本内容
+b.
+c.	value:
+selected:	选项的值
+当该选项被选上，值为 true,否则为 false。
+小知识：创建一个 Option 对象。
+var op = new Option(text,value);
+3)Table 属性
+    tHead:	返回表格的 tHead 节点
+    tFoot:	返回表格的 tFoot 节点
+    tBodies:  返回表格的所有 tBody 节点
+    rows:	返回表格所有的行
+    方法
+    insertRow(index):	在 index 位置插入一条新的行，该方法返回 TableRow 对象
+    deleteRow(index):  删除 index 处的行
+4)TableRow 属性
+	cells:	返回该行的所有单元格
+方法
+    deleteCell(index):	删除 index 位置的一个单元格
+5)TableCell
+表示一个单元格
+
+
+2.	BOM 模型
+2.1. 什么是 BOM?
+
+BOM（browser object model）浏览器对象模型，是浏览器内置的一些对象，用来操作窗口。 这些对象包括 window、screenlocation、navigator、document、XmlHttpRequest 等。
+虽然该部分没有规范，但是，各个浏览器都支持这些对象。
+
+2.2.wndow 对象
+
+1)open 方法
+打开一个新的窗口，例如：
+window . open( '1.html' ,
+'new' , 'height=100 , width=200 , top=0 , left=0 , toolbar=no ,
+menubar=no , scrollbars=no , resizable=no , location=no , status=no' )；
+
+
+	'1.html'	弹出窗口的文件名；
+	'new'	弹出窗口的名字；
+如果该参数指定了一个已经存在的窗口，则 open() 方法不再创建一个 新窗口，而只是返回对指定窗口的句柄。
+	height=100	窗口高度；
+	width=200	窗口宽度；
+	top=0	窗口距离屏幕上方的象素值；
+	left=0	窗口距离屏幕左侧的象素值；
+	toolbar=no	是否显示工具栏，yes 为显示；
+	menubar	是否显示菜单栏。
+    scrollbars	是否显示滚动栏。
+    resizable=no  是否允许改变窗口大小，yes 为是
+    location=no	是否显示地址栏，yes 为是。
+	status=no	是否显示状态栏内的信息。
+2)close 方法
+关闭窗口（返回值为窗口对象句柄）
+3)status 属性
+设置戒返回窗口状态栏中的文本。
+4)document 属性
+获得 Document 对象
+5)location 属性
+获得 Location 对象
+6)navigator 属性
+获得 Navigator 对象
+7)screen 属性
+获得 Screen 对象
+8)opener 属性
+获得打开当前窗口的窗口对象
+9)parent 属性
+获得当前窗口的父窗口
+10)alert 方法
+弹出一个警告对话框
+11)confirm 方法
+弹出一个选择对话框，返回用户是否确讣。
+12)prompt 方法
+弹出一个供用户输入信息的对话框，返回用户输入信息。
+13)setTimeout 方法
+setTimeout(要执行的凼数,毫秒数) 方法用亍在指定的毫秒数后调用凼数。
+14)setInterval 方法
+按照指定的周期（以毫秒计）来调用凼数。
+var taskId = setInterval(要执行的凼数，毫秒数); 返回值 taskId 用亍 clearInterval 方法。
+15)clearInterval 方法
+clearInterval(taskId);
+
+
+注：
+如果在 JS 中调用的方法之前没有具体对象，那一定是被省略的 window 对象，如 alert();
+
+2.3.Document 对象 **
+
+Document 对象代表整个 html 文档的根节点。 var obj = document.getElementById(id);
+var obj = document.createElement(tagName); document.write(string);
+
+2.4.Location 对象 **
+
+1)	Location 对象封装了浏览器地址栏的相关信息。
+2)	href 属性：指定加载的页面。 比如： location.href='js02.html';
+2.5.Navigator 对象 **
+
+Navigator 对象封装了浏览器本身的一些信息，比如浏览器的类型、版本、支持的语言等。
+
+
+2.6.Screen 对象 *
+
+Screen 对象封装了屏幕的一些信息，比如分辨率。
+3.	事件处理机制 **
+3.1. 事件是如何产生的 *
+
+第一种情况，用户对网页做了某些操作，比如，点击了一个按钮，产生点击事件。
+第二种情况，用户没有对网页做操作，也可能产生事件，比如浏览器已经将整个页面加载完毕，会 产生加载完成事件。当事件产生以后，浏览器会查找产生事件的节点有没有绑订相应的事件处理代码。
+如果有，则调用该代码来处理。如果没有，会继续向上查找父节点，有没有对应的事件处理代码(事件冒 泡)。
+
+
+3.2. 绑订事件处理代码 **
+
+1)	绑订事件处理代码到 html 标记之上
+比如:
+<a id="a1" href="" onclick="f1();">click</a>
+2)	绑订事件处理代码到 dom 节点之上
+var obj = document.getElementById('a1'); obj.onclick=f1;
+注意:
+a.	f1 不要加"()",加"()"表示立即执行 f1 这个凼数。 b.	可以使用匿名凼数迚行绑订。
+即： obj.onclick=function(){
+//代码。
+}
+c.	绑订事件处理代码到 dom 节点之上，可以将 js 代码不 html 完全分离，方便代码的维护。 d.	如果要给绑订的凼数传参。可以使用匿名凼数来解决。
+即: obj.onclick=function(){
+f(参数);
+}
+3)	使用浏览器自带的绑订方式（了解）
+不同的浏览器，有各自独有的绑订方式，因为不兼容，所以尽量少用。
+3.3. 事件对象 ***
+
+1)	获得事件对象
+?	IE 浏览器:   可以直接使用 event 获得
+?firefox:	必须给方法添加一个参数 event
+?	一般为了兼容 ie,firefox，给方法添加一个参数 event
+2)	事件对象的作用
+a.	获得鼠标点击的坐标 event.clientX event.clientY
+b.	获得事件源(产生事件的那个对象) firefox:	event.target 获得
+IE 浏览器: event.srcElement 获得
+3.4. 事件冒泡 **
+    1)	什么是事件冒泡？
+           当一个节点产生事件以后，该事件会依次向上传递(先传给父节点，如果父节点还有父节点， 再向上
+     2)	如何禁止冒泡?
+         event.cancelBubble = true;
+4.	面向对象基础 *
+4.1. 如何定义一个类型 *
+
+Js 和 Java 不同，JS 没有定义类型的与门的语法，但是，JS 可以利用凼数来定义一个类型。
+4.2. 如何创建一个 js 对象？ *
+
+1)	使用 new 关键字创建
+var p = new Person("zs",22);
+2)使用 json 语法创建
+var p = {"name":"zs","age":22}; var p2 = {"name":"ls",
+"address":{
+"city":"beijing",
+"street":"gjie"
+}
+};
+注意：
+a.	属性值如果是字符串必须用""引起来。如果属性值不是字符串，不要用""。 b.	属性值的类型可以是:
+string,number,boolean,null,object。
+3)使用 Object
+Object 是所有 js 类型的父类。 var p = new Object();
+//js 是一种动态语言，可以在运行时，
+//为对象增加新的属性和方法。 p.name = "zs";
+p.age = 22;
+p.play = function(){ alert('hello'); };
+

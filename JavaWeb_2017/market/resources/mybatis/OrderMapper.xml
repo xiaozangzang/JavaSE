@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.dao.OrderMapper">
+    <resultMap type="ServiceOrder" id="OrderMap">
+        <!-- <id column="id" property="userId" />
+        <result column="name" property="username"/> -->
+    </resultMap>
+    
+    <select id="getItemById" parameterType="Long" resultMap="OrderMap">
+    	SELECT 
+    		*
+    	FROM 
+    		serviceorder 
+   		WHERE
+   			id=#{id}
+    </select>
+    
+    <update id="update"  parameterType="com.cc.bean.ServiceOrder">
+        UPDATE 
+        	serviceorder 
+        SET 
+            status=#{status}
+        WHERE 
+        	id=#{id}
+    </update>
+    
+    
+    <select id="queryList" parameterType="com.cc.json.JPage" resultMap="OrderMap">
+    	SELECT 
+    		serviceorder.* ,commodity.name as commodityName,commodity.picture as picture
+    	FROM 
+    		serviceorder 
+    	LEFT JOIN
+    		shoppingcar
+   		ON
+    		serviceorder.shoppingCarId = shoppingcar.id
+   		LEFT JOIN
+   			commodity
+  		ON
+  			commodity.id = shoppingcar.commodityId
+    	WHERE
+    		serviceorder.userId=#{filter}
+    </select>
+    
+    <select id="queryAllList" parameterType="com.cc.json.JPage" resultMap="OrderMap">
+    	SELECT 
+    		serviceorder.* ,
+    		commodity.name as commodityName,
+    		commodity.picture as picture
+    	FROM 
+    		serviceorder 
+    	LEFT JOIN
+    		shoppingcar
+   		ON
+    		serviceorder.shoppingCarId = shoppingcar.id
+   		LEFT JOIN
+   			commodity
+  		ON
+  			commodity.id = shoppingcar.commodityId
+    	WHERE
+    		shoppingcar.supermarketId=#{filter}
+    </select>
+    
+    
+    <select id="getAllCount" resultType="Integer">
+		SELECT
+			COUNT(serviceorder.id)
+		FROM 
+    		serviceorder 
+    	LEFT JOIN
+    		shoppingcar
+   		ON
+    		serviceorder.shoppingCarId = shoppingcar.id
+   		LEFT JOIN
+   			commodity
+  		ON
+  			commodity.id = shoppingcar.commodityId
+    	WHERE
+    		shoppingcar.supermarketId=#{supermarketId}
+    </select>
+    
+    
+    <insert id="add" parameterType="com.cc.bean.ServiceOrder">
+        INSERT INTO 
+        	serviceorder 
+        	(userId,shoppingCarId,creationtime,status,sendType)
+        VALUES 
+        	(#{userId},#{shoppingCarId},#{creationtime},#{status},#{sendType})
+    </insert>
+    
+    
+    
+</mapper>

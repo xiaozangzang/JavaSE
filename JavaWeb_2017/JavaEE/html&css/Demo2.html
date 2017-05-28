@@ -1,0 +1,70 @@
+<html>
+<head>
+    <title>第二个页面</title>
+</head>
+
+<body>
+<h1 align="center">登录页面</h1>
+<!--form表单  接受用户的数据 -->
+<form action="Demo3" method="get">
+    <!-- 文本输入框 -->
+    用户名 :<input type="text"
+                name="username" value=""/>
+    <br/>
+    <!-- 密码输入框 -->
+    密 &nbsp;码 :<input type="password" name="pwd"/>
+    <br/>
+    <!-- 单选 -->
+    性别 :
+    男<input type="radio" name="gendar" value="m"
+            checked="checked"/>
+    女<input type="radio" name="gendar" value="f"/>
+    <br/>
+    <!-- 多选 -->
+    兴趣 :
+    看书<input type="checkbox" name="interest" value="reading" checked="checked"/>
+    画画<input type="checkbox" name="interest" value="drawing"/>
+    书法<input type="checkbox" name="interest" value="writting"/>
+    <br/>
+    <!-- 文件上传 -->
+    照片 :
+    <input type="file" name="phone"/>
+    <br/>
+    <!-- 隐藏域 -->
+    <input type="hidden" name="userId" value="123"/>
+    <!-- 下拉列表 -->
+    你来自于哪个城市 :
+    <select name="city">
+        <option value="bj">北京</option>
+        <option value="nj">南京</option>
+        <option value="tj">天津</option>
+    </select>
+    <br/>
+    <!-- 多行文本输入框 -->
+    自我描述 :
+<textarea name="desc" rows="2" cols="20">
+</textarea>
+    <br/>
+    <!-- 提交按钮 -->
+    <input type="submit" value="确定"/>
+    <!-- 重置按钮 -->
+    <input type="reset" value="重置"/>
+    <!-- 普通按钮 -->
+    <input type="button" value="按钮"/>
+    </form>
+    <label>这是一个注册页面</label>
+    </body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;web07_1/WebRoot/index.jsp&apos; to &apos;upload.jsp&apos;" description="Rename resource &apos;index.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebRoot/index.jsp" name="upload.jsp" stamp="1487917757861" updateReferences="true"/>
+</session>

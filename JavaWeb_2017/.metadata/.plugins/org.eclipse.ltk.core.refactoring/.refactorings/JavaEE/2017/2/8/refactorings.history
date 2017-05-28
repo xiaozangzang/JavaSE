@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 1 elements(s) to &apos;web05/src/com.entity&apos;&#x0D;&#x0A;- Original project: &apos;JavaEE&apos;&#x0D;&#x0A;- Destination element: &apos;web05/src/com.entity&apos;&#x0D;&#x0A;- Original element: &apos;com.second.CheckCodeServlet.java&apos;" description="Copy compilation unit" destination="=web05/src&lt;com.entity" element1="/src&lt;com.second{CheckCodeServlet.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1487754000404" units="1" version="1.0"/>
+</session>

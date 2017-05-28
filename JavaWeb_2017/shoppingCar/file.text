@@ -1,0 +1,24 @@
+列表显示
+	每行代表的一件商品的信息（一个对象[Computer]）
+	通过查询数据库查找所有的商品显示
+购买：
+	自己创造一辆车（购物车）---session
+	将所需要买的东西添加车里去
+删除：
+	从session中的购物车删除东西
+修改：
+	从session中的购物车里修改东西
+清空：
+	从session中的购物车清空
+总计：
+	计算seeion中的购物车里的所有商品的价格
+	
+	Computer类
+		电脑的信息
+	CartItem类
+		Computer
+		count
+	将CartItem条目放到购物车里
+	Cart类
+	List<CartItem> lists
+	session.add(Cart);

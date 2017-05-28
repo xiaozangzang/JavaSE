@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.dao.CommodityMapper">
+    <resultMap type="Commodity" id="CommodityMap">
+       <!--  <id column="id" property="userId" />
+        <result column="name" property="username"/> -->
+    </resultMap>
+    
+    <select id="queryList" parameterType="com.cc.json.JPage" resultMap="CommodityMap">
+    	SELECT 
+    		commodity.*,commodity_category.name as categoryName,supermarket.name as supermaketName
+    	FROM 
+    		commodity
+    	left join commodity_category
+    		on commodity.categoryId=commodity_category.id
+    	left join supermarket 
+    		on commodity.supermarketId=supermarket.id
+   		
+    	LIMIT #{startNum},#{pageCount}
+    </select>
+    
+    <select id="getCommodityCount" resultType="Integer">
+		SELECT
+			COUNT(id)
+		FROM
+			commodity
+		WHERE
+    		supermarketId= #{marketId}
+    </select>
+    
+    <select id="getCount" parameterType="String" resultType="Integer">
+		SELECT
+			COUNT(id)
+		FROM
+			commodity
+    </select>
+    
+    <delete id="delete">
+    	DELETE FROM commodity WHERE id=#{id}
+    </delete>
+
+    <select id="getItemById" resultMap="CommodityMap">
+		SELECT
+			*
+		FROM
+			commodity
+		WHERE
+			id=#{id}
+    </select>
+    
+    <insert id="insert" parameterType="com.cc.bean.Commodity">
+        INSERT INTO 
+        	commodity 
+        	(name,categoryId,price,description,picture,supermarketId)
+        VALUES 
+        	(#{name},#{categoryId},#{price},#{description},#{picture},#{supermarketId})
+    </insert>
+    
+    <update id="update"  parameterType="com.cc.bean.Commodity">
+        UPDATE 
+        	commodity 
+        SET 
+            name=#{name},
+            categoryId=#{categoryId},
+            price=#{price},
+            description=#{description},
+            picture=#{picture},
+            supermarketId=#{supermarketId}
+        WHERE 
+        	id=#{id}
+    </update>
+    
+</mapper>

@@ -1,0 +1,173 @@
+
+引入CSS文件
+<link rel="stylesheet" type="text/css" href="style.css">
+
+1. 什么是 css
+css 即 cascading stylesheet（级联样式表）
+css 为网页提供表现的形式，即按照 w3c 的建议，实现一个比较好的网页设计，应该按照如下 的规则：
+    网页的结构不数据，应该写在.html 文件里
+	网页的表现形式，应该写在.css 文件里
+	网页的行为，应该写在.js 文件里
+	这样做的原因是，将网页的数据、表现、行为分离，方便代码的维护
+css选择器定义了如何查找 html 标记，浏览器会依据选择器，找到匹配的标记，然后施加对应的 样式。
+<div></div> 标记表示 一块可显示html的区域，设置 文字  图片 表格的摆放位置
+1.标记选择器(简单选择器)
+
+标记的名称{
+属性名：属性值 ;
+... ;
+}
+2.	class 选择器
+第一种形式	匿名的 class 选择器
+. 选择器的名称{
+属性名：属性值 ;
+... ;
+font-size:100px;  <-- 字体大小-->
+font-weight:normal;<--字体粗细--> normal blod bloder lighter
+font-style:italic/normal;
+font-family:"宋体";  //字体类型
+text-align:left/right/center;  //对齐方式
+line-height:40px;   //行高
+cursor:wait/pointer;   //光标的形状
+text-decoration:underline/none;  //有无下划线
+}
+
+注：标记的 class 属性值不选择器的名称相等
+第二种形式   有名的 class 选择器 标记的名称 . 选择器的名称{
+属性名：属性值 ;
+... ;
+
+注：除了标记的 class 属性值不选择器的名称相等以外，还要求标记的名称匹配
+3.	id 选择器
+选择器的名称{
+属性名：属性值 ;
+... ;
+}
+
+标记的 id 属性值不选择器的名称相等。
+注意，在同一个 html 文件当中，id 值必须唯一
+4.选择器的分组
+
+h1 , h2 , h3{
+color   : green ;
+}
+
+对以" ,  "隔开的选择器施加相同的样式
+对多个选择器使用同一个样式。
+
+		e,选择器的派生
+			select1 select2 ...{
+				属性名：属性值；
+			}
+			select1对应的标记里面，包含一个符合
+			select2要求的标记。
+                   #d2 p{
+	                 color:blue;
+                      }
+
+
+
+	4、样式的继承
+			子标记会继承父标记的样式。
+	5、样式的优先级
+			外部样式(将样式写在.css文件里)
+			内部样式(将样式写在style标记里面)
+			内联样式(将样式写在标记里，使用style属性)
+			如果样式发生冲突，优先级由高到底，分别是内联样式、内部样式、外部样式、默认样式。
+	6、了解一些常用的css属性
+			a,文本
+					font-size:30px; /*字体大小*/
+					font-weight:100; //字体粗细
+					font-style:italic/normal;
+					font-family:"宋体"; //字体
+					text-align: left/right/center; //对齐方式
+					line-height: 40px;//行高
+					cursor:wait/pointer; //光标的形状
+					text-decoration:underline/none; //有无下划线。
+			b,背景
+					background-color: red/#ff88ee/rgb(100,22,38);   //背景颜色
+					background-image:url(images/abc.jpg); //背景图片
+					background-position:100px 80px;   //位置
+					background-attachment: fixed/scroll;//依附方式
+					background-repeat: no-repeat/repeat-x/repeat-y //平铺方式
+					也可以简化为:
+					background: 背景颜色 背景图片 平铺方式 依附方式 位置
+			c,定位
+					width: 100px; //宽度
+					height:100px; //高度
+					margin://外边距
+						第一种用法：
+						margin-left:10px;
+						margin-top:20px;
+						margin-right:30px;
+						margin-bottom:40px;
+						第二种用法:
+						margin:20px 30px 40px 10x;//顶，右，底，左
+						此外，还可以这样指定：
+						margin:0px; //都是0px
+						margin:20px auto;//上，下各20px,左右平均分配。
+					padding://内边距
+						第一种用法：
+						padding-left:10px;
+						padding-top:20px;
+						padding-right:30px;
+						padding-bottom:40px;
+						第二种用法:
+						padding:20px 30px 40px 10x;//顶，右，底，左
+						内边距会将父标记挣开。
+						此外，还可以这样指定：
+						padding:0px;
+			行内标记与块标记:
+				行内标记：在一行内从左到右摆放。
+				块标记：需要另起一行。
+				常见的块标记:
+						<h1>,<h2>...<h6>
+						<table>
+						<form>
+						<p>
+						<img>
+						<ul>,<li>
+						<div>
+				常见的行内标记:
+						<span>
+						<strong>
+			d,边框
+				第一种用法:
+				border:1px solid red; //宽度、类型、颜色
+				第二种用法:
+				border-left:1px solid red;
+				border-right:1px solid blue;
+				border-bottom:1px solid black;
+				border-top:1px solid yellow;
+			e,浮动
+				float:left/right; //向左，向右移动
+				clear:both; //取消浮动
+			f,列表
+				list-style-type:none; //取消列表选项的项目符号
+			g,链接的伪样式
+            a{
+				text-decoration:none;
+				color:blue;
+			}
+			a:hover{
+				text-decoration:underline;
+				color:red;
+			}
+				a:link { color: red} 没有访问时
+				a:visited { color: blue} 访问后
+				a:active { color: lime} 鼠标点击但还没有放开时
+				a:hover { color: aqua} 鼠标指向时
+<marquee></marquee>
+<!--设置滚动文字  滚动方向  left right up down-->
+<!--滚动方向属性  循环滚动  只滚动一次  来回滚动 -->
+<!--scroll 默认  slide只滚动一次  alternate来回滚动 -->
+<!--滚动的速度 scrollmount  以像6素为单位-->
+<marquee scrollamount="50" loop="5" bgcolor="red" width="500px"height="500px">
+    <font color="#00ff00"size="30px">这是滚动文字</font></marquee>
+<!--滚动的背景颜色 bgcolor -->
+<!--滚动的范围 width height -->
+<!--添加背景音乐 -->
+<bgsound src=""></bgsound>
+<!--添加多媒体文件  .avi -->
+<embed src="" autostart="true"></embed>
+<!--自动播放 属性  autostart="true" false -->

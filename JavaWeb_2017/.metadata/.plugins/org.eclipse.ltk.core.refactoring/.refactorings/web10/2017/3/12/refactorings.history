@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;web10/WebRoot/index.jsp&apos; to &apos;regist.jsp&apos;" description="Rename resource &apos;index.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebRoot/index.jsp" name="regist.jsp" stamp="1490187338075" updateReferences="true"/>
+</session>

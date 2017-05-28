@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.dao.CommodityCategoryMapper">
+    <resultMap type="CommodityCategory" id="CommodityCategoryMap">
+       <!--  <id column="id" property="userId" />
+        <result column="name" property="username"/> -->
+    </resultMap>
+    
+    <select id="queryAllList"  resultMap="CommodityCategoryMap">
+    	SELECT 
+    		* 
+    	FROM 
+    		commodity_category
+    </select>
+    
+    <select id="queryList" parameterType="com.cc.json.JPage" resultMap="CommodityCategoryMap">
+    	SELECT 
+    		* 
+    	FROM 
+    		commodity_category 
+    	LIMIT #{startNum},#{pageCount}
+    </select>
+    
+    <select id="getCommodityCategoryCount" resultType="Integer">
+		SELECT
+			COUNT(id)
+		FROM
+			commodity_category
+    </select>
+    
+    <select id="getItemById" resultMap="CommodityCategoryMap">
+		SELECT
+			*
+		FROM
+			commodity_category
+		WHERE
+			id=#{id}
+    </select>
+    
+    <insert id="insert" parameterType="com.cc.bean.CommodityCategory">
+        INSERT INTO 
+        	commodity_category 
+        	(name)
+        VALUES 
+        	(#{name})
+    </insert>
+    
+    <update id="update"  parameterType="com.cc.bean.Supermarket">
+        UPDATE 
+        	commodity_category 
+        SET 
+            name=#{name}
+          
+        WHERE 
+        	id=#{id}
+    </update>
+    
+    <delete id="delete">
+    	DELETE FROM commodity_category WHERE id=#{id}
+    </delete>
+    
+</mapper>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<!-- 监听器 -->
+	<listener>
+		<listener-class>com.listener.MySessionListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>size</param-name>
+		<param-value>50</param-value>
+	</context-param>
+	<context-param>
+		<param-name>location</param-name>
+		<param-value>classpath:/a/b/c</param-value>
+	</context-param>
+	
+	
+   <servlet>
+   	<servlet-name>myOne</servlet-name>
+   	<servlet-class>com.web.OneServlet</servlet-class>
+   </servlet>
+   <servlet-mapping>
+   	<servlet-name>myOne</servlet-name>
+   	<url-pattern>/one</url-pattern>
+   </servlet-mapping> <servlet>
+   	<servlet-name>myTwo</servlet-name>
+   	<servlet-class>com.web.TwoServlet</servlet-class>
+   </servlet>
+   <servlet-mapping>
+   	<servlet-name>myTwo</servlet-name>
+   	<url-pattern>/two</url-pattern>
+   </servlet-mapping>
+  
+</web-app>

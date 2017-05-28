@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="gbk">
+    <title>Form表单练习</title>
+</head>
+<body>
+<table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td width="1200px" bgcolor="blue"> 欢迎注册无限量的网易邮箱！邮箱地址也可以登录其他网易帐下产品。</td>
+    </tr>
+    <tr width="40px">
+        <table border="1" cellpadding="0"cellspacing="0">
+            <br>
+            <tr>
+
+                <td><input type="button" name="button1" value="注册字母邮箱"/></td>
+                <td><input type="button" name="button2" value="注册手机号码邮箱"/></td>
+                <td><input type="button" name="button3" value="注册VIP邮箱"/></td>
+            </tr>
+        </table>
+
+
+    </tr>
+</table>
+<form action="Demo2.html" method="get">
+    <br>
+    邮箱地址 &nbsp;<input type=text name=mail width="20px">
+    @<select name="mail">
+    <option>126.com</option>
+    <option>qq.com</option>
+</select>
+    <br>
+    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>6-18个字符，可使用数字、字母、下划线，需以字母开头</small></label>
+    <br>
+    密&nbsp;&nbsp;码&nbsp;&nbsp;&nbsp;&nbsp;<input type=password name="pwd1" width="40px">
+    <br>
+    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>6-18个字符，区分大小写</small></label>
+    <br>
+
+    确认密码&nbsp;&nbsp;<input type=password name="pwd2" width="40px">
+    <br>
+    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请再次填写密码</label>
+    <br>
+    手机号码<input type=text width="40px" value="+86-">
+    <br>
+    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;忘记密码时，可以通过手机号码快速找回密码</label>
+    <br>
+    验证码<input type=text width="20px"/>
+    <br>
+    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请填写图片中的字符，不区分大小写</label>
+    <br>
+    &nbsp;&nbsp;&nbsp;<input type="button" value="免费获取验证码"/>
+    <br>
+    短信验证码<input type="text" width="40px"/>
+
+</form>
+</body>
+</html>

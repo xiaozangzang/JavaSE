@@ -1,0 +1,85 @@
+ 1、写一个“交友”系统
+    功能：
+    A.注册
+    注册的内容包含：username,name,pwd,age,sex,phone
+    验证码：验证码出错，不能注册。
+    注册成功：自动跳转到登录
+    B.登录
+    包含的内容：username,pwd
+    登录成功：跳转到主功能页面（即列出当前系统所有
+    已注册用户）。
+    C.主功能页面
+    1）列出所有已注册用户的信息（包含
+    username,sex,age）
+    2）点“详细”链接：
+        列出用户的name,phone
+        如果是当前用户（比如用户sdd登录了系统，并且
+        点击的链接也是sdd）,则可以上传照片，上传之后，
+        会立即显示照片。
+        如是不是当前用户，则只能查看照片。
+    实现提示：
+    表：
+    create table friend_user(
+    id bigint primary key auto_increment,
+    username varchar(20) unique,
+    password varchar(10),
+    name varchar(20),
+    age int(3),
+    gendar varchar(1),
+    phone varchar(20));
+
+    create table friend_pic(
+    id bigint primary key auto_increment,
+    picName varchar(100),
+    userId bigint);
+
+    select * from
+        friend_user u
+            left join
+        friend_pic p
+            on u.id=p.userId
+    注册：
+    除了以前要做的工作以外（验证码的处理，插入数据库）
+    为当前注册的用户创建一个存放上传照片的文件夹
+    在upload下面，
+    建立一个文件夹 pic_id（id是用户id号）
+    File file = new File("./upload");
+    File[] filesList = file.listFiles();
+    for(File f : filesList){
+        if(f.getName.equals(fileName)){
+            continue;
+        }else{
+            file = new File("./upload"+"/pic_"+userId)
+            if(file.exist){
+                file.mkdir();
+            }
+        }
+    }
+    登录：
+    比较用户名与密码
+    登录成功，session.setAttribute("id",user);
+    主功能页面：
+    列出所有用户（略）
+    点“详细”链接：
+    上传文件是否显示（即是否显示上传文件的那个表单）：
+        比较 session.getAttribute("id")是否等于
+        user.getId()。如果相等，
+        是当前用户，可以上传。
+        <%
+            if(session.getAttribute("id") == user.getId()){
+            %>
+            <form action="" enctype=...>
+            </form>
+            <%
+            }
+        %>
+    是否显示照片：
+        只要看
+        session.getAttriubte("id")是否存在。
+        如果id存在，说明用户已经登录过系统，可以查看。
+
+    照片上传与显示：
+        当用户上传照片时，除了将照片文件
+        存放到相应的
+        文件夹下面以外，还要将照片的文件
+        名存放到friend_pic表

@@ -1,0 +1,158 @@
+ 文本标记
+    <br>
+    <p></p>
+    <h1></h1>
+    <head></head>
+    <body></body>  页面的主体标记
+        属性:
+            text="#ff0000";  设置文字的颜色
+            background: ;    背景图片
+            bgcolor---设置背景颜色
+            链接文字的属性  --link
+ 1.链接
+(1) 
+	<a href= "url 地址"   target=" "   title=" " > 描述性的文字 </a>
+	href 属性：	指定链接的地址
+	target 属性：	指定在哪个窗口打开链接，值可以指定为：
+	    _slef：	在当前窗口中打开（缺省）;_blank：	新窗口中打开.
+	title：	提示信息;
+(2)	使用图片作为链接
+语法：
+<a href="">
+<img src="" width="" height="" border="0"/>
+</a>
+	src：	对于 img 标签，src 指定图片的地址
+	wdith：   宽度
+	height：  高度
+	border： 边框（为 0 表示没有边框）
+
+(3)	发送邮件 
+语法：
+<a href="mailto :eric@126.com?subject=hello" > 给我发邮件 </a>
+	点击该链接启动发送邮件的默认软件（如 Outlook）
+	演示
+
+(4)锚点(在同一个页面内部跳转) *
+   1)	锚点实现在页面内部跳转
+   2)	语法
+<a name="top">top...</a>
+<a href="#top">跳转到 top</a>
+
+
+2.表格 
+
+ （2）表格的基本结构 
+	语法
+		<table border=""   width="" cellpadding=""   cellspacing="">
+		<tr align="">
+		<td align=""></td>
+		<td></td>
+		</tr>
+		</table>
+			border :	边框的宽度，单位是像素（缺省值是 0）
+			width :	表格的宽度   可以用百比分(表示该表格占父标记的宽度)，也可以是绝对值
+			height: 表格的高度  
+			cellpadding :	单元格内容之间的空隙
+			cellspacing :	单元格之间的空隙
+			align :	水平对齐，值有"center","right","left"
+（2） 不规则表格 
+	colspan :	跨列合幵单元格
+	rowspan :	跨行合幵单元格
+	valign :	垂直对齐，值有"top"、"middle"、"bottom"
+（3） 表格的完整的结构 
+语法
+<table>
+<caption>表格的标题</caption>
+<thead></thead>
+<tfoot></tfoot>
+<tbody></tbody>
+</table>
+	thead、tfoot 这两个标记可以不出现，如果出现，只能出现一次
+	tbody 可以出现多次，至少也要出现一次
+	caption 只能出现一次或者不出现
+
+3. 表单
+
+    表单一般是用来收集用户信息的。
+  3.1.  表单的基本语法
+    语法
+    <form action="" method="" enctype=""> input 标记 </form>
+    	action 属性 :	表单提交之后由哪一个程序来处理
+    	method 属性 :	表单提交方式
+    	enctype 属性 :	设置表单的 MIME 编码
+3.2  表单的主要的标记
+	3.2.1 input 标记
+
+    1)	文本输入框
+    <input type="text" name="" value="" />
+    type 属性：	input 标记的具体类型
+    type 内容可以不写，默认是文本框
+   	name 属性：	标记的一个名称，该名称用于生成一个请求参数，
+    如果没有命名，则浏览器不会该数据发送给服务器
+   	value 属性 :	缺省值
+    2)	密码输入框
+    <input type="password" name="" />
+
+    3)	单选
+    <input type="radio" name="" value="" checked="checked" />
+    单选按钮应是互斥的，只能选择其中一个
+    同一组单选按钮，name 必须相同
+    value 属性：	发送给服务器端的值
+    checked 属性：	就一个值"checked",表示缺省被选上
+    4)	多选
+    <input type="checkbox" name="" value="" checked="" />
+    5)	文件上传
+    <input type="file" name=""/>
+
+    6)	提交按钮
+    <input type="submit" value="Confirm" />
+    value 属性：	按钮上面的文字
+    当点击提交按钮时，浏览器默认情况下，会将表单中的数据发送给服务器
+    7)	重置按钮
+    <input type="reset" value="reset"/>
+    当点击提交按钮时，浏览器会将输入的数据清空
+    8)	隐藏域
+    <input type="hidden" name="" value=""/>
+    不会在界面上显示出来，一般用于向服务器传送数据。
+    name 属性	设置参数名
+    value 属性	设置参数值
+    9)	普通按钮
+    <input type="button" value=""/>
+    value 属性：	按钮上面的文字，点击该按钮，浏览器什么都不做 需要编程实现功能
+    3.2.2 非 input 标记
+    1)	下拉列表
+    <select name="" multiple="">
+    <option value=""></option>
+    </select>
+    value 属性：	是提交给服务器的值
+    multiple 属性 :	就一个值 "multipart"
+    设置该属性值以后，下拉列表变成了一个多选框 若不设置，则列表显示
+    2)	多行文本输入框
+    <textarea name="" cols="" rows=""></textarea>
+	2.4. 列表
+
+    1)	无序列表
+
+    <ul><li></li></ul>
+
+    2)	有序列表
+
+    <ol>
+    <li></li>
+    </ol>
+    3)	列表可以嵌套
+	
+2.5. 窗口划分
+2.5.1.frameset 和 frame
+语法
+	<frameset rows="20%,*">
+	<frame name="topFrame" src="top.html"/>
+	<frameset cols="30%,*">
+	<frame name="leftFrame" src="left.html"/>
+	<frame name="mainFrame" src="main.html"/>
+	</frameset>
+	</frameset>
+	frameset 标记不能够不 body 标记同时出现
+	rows 属性：	将窗口划分成几行
+	cols 属性：	将窗口划分成几列
+	frame 标记定义子窗口,其中,src 指定加载的页面

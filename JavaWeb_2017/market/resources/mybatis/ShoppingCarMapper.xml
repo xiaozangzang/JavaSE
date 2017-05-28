@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.dao.ShoppingCarMapper">
+    <resultMap type="ShoppingCar" id="ShoppingCarMap">
+       <!--  <id column="id" property="userId" />
+        <result column="name" property="username"/> -->
+    </resultMap>
+    
+    <select id="queryList" parameterType="com.cc.json.JPage" resultMap="ShoppingCarMap">
+    	SELECT 
+    		shoppingcar.* , commodity.price as price ,commodity.name as commodityName,commodity.picture as picture, supermarket.name as supermarketName
+    	FROM 
+    		shoppingcar 
+    	LEFT JOIN commodity
+    		ON shoppingcar.commodityId = commodity.id
+    	LEFT JOIN supermarket
+    		ON shoppingcar.supermarketId = supermarket.id
+    	WHERE userId=#{filter}
+    	LIMIT #{startNum},#{pageCount}
+    </select>
+    
+    <select id="getCount"  resultType="Integer">
+		SELECT
+			COUNT(id)
+		FROM
+			shoppingcar
+		WHERE  userId=#{userId}
+    </select>
+    
+    <delete id="delete">
+    	DELETE FROM shoppingcar WHERE id=#{id}
+    </delete>
+
+    <select id="getItemById" resultMap="ShoppingCarMap">
+		SELECT
+			*
+		FROM
+			shoppingcar
+		WHERE
+			id=#{id}
+		
+    </select>
+    
+    <select id="getItemByCommodityId" parameterType="com.cc.bean.ShoppingCar" resultMap="ShoppingCarMap">
+		SELECT
+			*
+		FROM
+			shoppingcar
+		WHERE
+			commodityId=#{commodityId}
+		AND
+			userId=#{userId}
+    </select>
+    
+    <insert id="add" parameterType="com.cc.bean.ShoppingCar">
+        INSERT INTO 
+        	shoppingcar 
+        	(commodityId,supermarketId,userId,creationTime,count)
+        VALUES 
+        	(#{commodityId},#{supermarketId},#{userId},#{creationTime},#{count})
+    </insert>
+    
+    <update id="update"  parameterType="com.cc.bean.ShoppingCar">
+        UPDATE 
+        	shoppingcar 
+        SET 
+            count=#{count}
+        WHERE 
+        	id=#{id}
+    </update>
+
+</mapper>

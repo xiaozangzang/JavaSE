@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.dao.SupermarketMapper">
+    <resultMap type="Supermarket" id="SupermarketMap">
+       <!--  <id column="id" property="userId" />
+        <result column="name" property="username"/> -->
+    </resultMap>
+    
+    <select id="queryList" parameterType="com.cc.json.JPage" resultMap="SupermarketMap">
+    	SELECT 
+    		* 
+    	FROM 
+    		supermarket 
+    	LIMIT #{startNum},#{pageCount}
+    </select>
+    
+    <select id="getSupermarketCount" resultType="Integer">
+		SELECT
+			COUNT(id)
+		FROM
+			supermarket
+    </select>
+    
+    <select id="getItemById" resultMap="SupermarketMap">
+		SELECT
+			*
+		FROM
+			supermarket
+		WHERE
+			id=#{id}
+    </select>
+    
+    <insert id="insert" parameterType="com.cc.bean.Supermarket">
+        INSERT INTO 
+        	supermarket 
+        	(name,address,picture,phone,description)
+        VALUES 
+        	(#{name},#{address},#{picture},#{phone},#{description})
+    </insert>
+    
+    <update id="update"  parameterType="com.cc.bean.Supermarket">
+        UPDATE 
+        	supermarket 
+        SET 
+            name=#{name},
+            address=#{address},
+            picture=#{picture},
+            phone=#{phone},
+            description=#{description}
+        WHERE 
+        	id=#{id}
+    </update>
+    
+    <delete id="delete">
+    	DELETE FROM supermarket WHERE id=#{startNum}
+    </delete>
+    
+</mapper>

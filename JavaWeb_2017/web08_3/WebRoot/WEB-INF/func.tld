@@ -1,0 +1,37 @@
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+  version="2.0">
+  
+  <description>JSTL 1.1 functions library</description>
+  <display-name>JSTL functions</display-name>
+  <tlib-version>1.1</tlib-version>
+  <short-name>myFn</short-name>
+  <uri>http://zhang.zhi.peng/myFn</uri>
+  <function>
+  	<name>concat</name>
+  	<function-class>com.el.MyFunction</function-class>
+  	<function-signature>String concat(java.lang.String,java.lang.String)</function-signature>
+  </function>
+  <function>
+  	<name>toUpper</name>
+  	<function-class>com.el.MyFunction</function-class>
+  	<function-signature>String toUpper(java.lang.String)</function-signature>
+  	<example>
+  		${fn:toUpper(name)}
+  	</example>
+  </function>
+  <function>
+  	<name>removeNum</name>
+  	<function-class>com.el.MyFunction</function-class>
+  	<function-signature>String removeNum(java.lang.String)</function-signature>
+  	<example>
+  		${fn:removeNum(name)}
+  	</example>
+  </function>
+  <function>
+  	<name>returnNum</name>
+  	<function-class>com.el.MyFunction</function-class>
+  	<function-signature>String returnNum(java.lang.String)</function-signature>
+  </function>
+  </taglib>

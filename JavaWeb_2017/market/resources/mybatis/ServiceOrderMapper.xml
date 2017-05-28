@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.dao.ServiceOrderMapper">
+    <resultMap type="ServiceOrder" id="ServiceOrder">
+       <!--  <id column="id" property="userId" />
+        <result column="name" property="username"/> -->
+    </resultMap>
+    
+    <select id="queryList" parameterType="com.cc.json.JPage" resultMap="ServiceOrder">
+    	SELECT 
+    		service_order.*, supermarket.name
+        	FROM 
+    		service_order 
+    	left join supermarket
+    	on service_order.supermarketId=supermarket.id
+    	LIMIT #{startNum},#{pageCount}
+    </select>
+    
+    <select id="getServiceOrderCount" resultType="Integer">
+		SELECT
+			COUNT(id)
+		FROM
+			service_order
+    </select>
+    
+    <select id="getItemById" resultMap="ServiceOrder">
+		SELECT
+			*
+		FROM
+			service_order
+		WHERE
+			id=#{id}
+    </select>
+    
+
+</mapper>

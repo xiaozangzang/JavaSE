@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.web.twoServlet&apos; to &apos;TwoServlet&apos;&#x0D;&#x0A;- Original project: &apos;web07&apos;&#x0D;&#x0A;- Original element: &apos;com.web.twoServlet&apos;&#x0D;&#x0A;- Renamed element: &apos;com.web.TwoServlet&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;twoServlet&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.web{twoServlet.java[twoServlet" matchStrategy="1" name="TwoServlet" qualified="false" references="true" similarDeclarations="false" stamp="1488417462374" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Layout resource="/web08_3/WebRoot/WEB-INF/func.tld">
+ <TreeFormPage>
+  <Memento type="">
+   <Memento collapsed="false" type="Properties Editor"/>
+  </Memento>
+  <Memento type="FileTLD_2_0">
+   <Memento type="Tag Library Description"/>
+   <Memento type="Defined Tags"/>
+  </Memento>
+ </TreeFormPage>
+</Layout>

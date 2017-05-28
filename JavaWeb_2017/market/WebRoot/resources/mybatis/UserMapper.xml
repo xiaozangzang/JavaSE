@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.dao.UserMapper">
+    <resultMap type="User" id="UserMap">
+        <!-- <id column="id" property="userId" />
+        <result column="name" property="username"/> -->
+    </resultMap>
+    
+    <select id="getUserByUsername" parameterType="String" resultMap="UserMap">
+    	SELECT 
+    		* 
+    	FROM 
+    		user 
+    	WHERE 
+    		username=#{username} 
+    	LIMIT 1
+    </select>
+    
+    
+   <select id="getById" parameterType="Long" resultMap="UserMap">
+    	SELECT 
+    		* 
+    	FROM 
+    		user 
+    	WHERE 
+    		id=#{id} 
+    	LIMIT 1
+    </select>
+    
+    <insert id="insert" parameterType="com.cc.bean.User">
+        INSERT INTO 
+        	user 
+        	(username,password,phone,address)
+        VALUES 
+        	(#{username},#{password},#{phone},#{address})
+    </insert>
+    
+    <update id="update"  parameterType="com.cc.bean.User">
+        UPDATE 
+        	user 
+        SET 
+            username=#{username},
+            password=#{password},
+            phone=#{phone}
+        WHERE 
+        	id=#{id}
+    </update>
+    
+</mapper>
